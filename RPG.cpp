@@ -29,14 +29,42 @@ struct Mob {
 	float vida;
 };
 
+void separador(){
+	for(int i = 0; i < 38; i++){
+		cout << "=-";
+	} 
+}
+
 void Falas(string fala){
        for (char L : fala){ // transformando string em char
            cout << L; // printando letra por letra
-           Sleep(170); // delay de 150 ms para cada letra (podendo alterar)
+           Sleep(1); // delay de 150 ms para cada letra (podendo alterar)
        }
 	   cout << "\n";
 	   getchar(); // pausa para o player clicar para aparecer outra fala (um pouco paia pq aparece "pressione qualuqer tecla para continuar"), passivel de retirada!
 }
+
+// FALAS DOS PERSONAGENS
+void falasPersonagem(string fala, string nome){
+	int qtdLetras = 0;
+	cout << "\n\n\t\t->" << nome << "\n\n\t\t";
+	separador();
+	cout << "\n";
+	for (char L : fala){
+		if(qtdLetras == 76){
+			cout << "\n\t\t";
+		} 
+		cout << L; 
+        Sleep(25);
+		qtdLetras++; 
+       }
+    cout << "\n\n\t\t";
+    separador();
+	cout << "\n";
+	getchar(); 
+}
+
+//DROPAR ITENS
 void DropItem(Player &player, Item item[50], Inventario &inventario) {
     srand(time(0));
     cout << "Os itens dropados foram:\n";
@@ -53,6 +81,8 @@ void DropItem(Player &player, Item item[50], Inventario &inventario) {
     cout << endl;
     system("pause");
 }
+
+//EXPERIENCIA DO PLAYER
 Player SomaXp(Player &player, int xp) {
 	int soma = player.xp + xp;
 	player.xp += xp;
@@ -65,6 +95,8 @@ Player SomaXp(Player &player, int xp) {
 	}
 	return player;
 }
+
+// PLAYER COM E MOCHILA
 Player SomaItem(Player &player, Item item) { 
     if (item.nome == "Pocao de Cura Pequena" || item.nome == "Pocao de Cura Media" || item.nome == "Pocao de Cura Grande") {
         player.vida += item.atributo;
@@ -77,6 +109,8 @@ Player SomaItem(Player &player, Item item) {
     }
     return player;
 }
+
+//STAMINA
 Player CalculaStamina(Player &player, int qntS, string lugar){
 	int qntP = 0;
 	if (player.stamina < qntS) {
@@ -125,6 +159,8 @@ Player CalculaStamina(Player &player, int qntS, string lugar){
 			}
 	return player;
 }
+
+//SISTEMA DE LUTA
 float Luta(Player player, Inventario inventario, Item item[50], Mob mob){
 	system ("cls");
 	bool LutaAcabou = false;
@@ -196,6 +232,7 @@ float Luta(Player player, Inventario inventario, Item item[50], Mob mob){
 }
 
 int main() {
+
 	Player player;
 	Inventario inventario;
 	player.qntI = 1; // Inicializa player.qntI
@@ -312,13 +349,93 @@ int main() {
 	cout << "Carisma: " << player.carisma << endl;
 	cout << "Destreza: " << player.destreza << endl;
 
+	cout << "\n";
+
+	//INTRODUÇAO A HISTORIA
+	Falas("Voce e um aventureiro vagando pelo vasto mundo de Elbaph...");
+    Falas("Cansado e faminto, encontra uma vila aparentemente tranquila.");
+    Falas("No entanto, logo percebe que os aldeoes enfrentam algo terrivel.");
+    Falas("Doencas misteriosas assolam o lugar, e nem magos nem curandeiros conseguem ajuda-los.");
+    Falas("Voce entra em uma taverna em busca de respostas...");
+    Falas("Um anao de nome Leo se aproxima. Seus olhos brilham com esperanca.");
+    Falas("\"A muito tempo\", ele diz, \"um amuleto lendario foi perdido na Dungeon desta vila.\"");
+    Falas("\"Dizem que esse artefato pode curar qualquer enfermidade.\"");
+    Falas("\"Eu sinto algo especial em voce... algo que diz que e o heroi que esperavamos.\"");
+    Falas("Ele lhe entrega um mapa da Dungeon e pede que encontre o amuleto.");
+    Falas("Cheio de esperancas"  " pega a sua espada vai avante a Dungeon salvar a vila"); // NOME PLAYER E ITEM NOS ESPAÇO
+    system("cls");
+
+	//INDO PRA DUNGEON, E ENCONTRO COM O THIAGO (SALVE PROFESSOR)
+	Falas("Ao sair da taverna voce abre o mapa e percebe que a caminhada e longa");
+	Falas("sem perder muito tempo" "pega os suprimentos necessarios e parte a Dungeon"); //NOME DO PLAYER
+
+	Falas("Apos alguns minutos de caminhada voce chega ate o seu local de Destino.");
+	Falas("Uma floresta densa, mas ate entao nao ha nada do que temer alias tudo esta bem normal ate agora, voce diz em voz alta");
+	Falas("Cheio de esperança voce inspira fundo e da o primeiro passo ate a boca da Caverna");
+	Falas("Ao olhar a um arbusto proximo voce se depara com um Mochileiro, chorando...");
+	Falas("Ele parece exausto, segurando firmemente um pedaço de pano rasgado.");
+	system("cls");
+
+	Falas("Aventureiro (voce): \"Ei... voce esta bem? O que aconteceu?\"");
+
+	Falas("Jovem: \"E-eles... eles se foram... Todos eles!\"");
+	Falas("Ele soluca enquanto aponta para o pano que segura. Parece ser parte do manto de alguem.");
+
+	Falas("Aventureiro: \"Calma... respire fundo. Me conte o que houve.\"");
+
+	Falas("Jovem: \"E-estavamos tentando encontrar o amuleto... Mas fomos atacados! Goblins... muitos deles!\"");
+	Falas("Ele se encolhe ao lembrar do ocorrido.");
+
+	Falas("Aventureiro: \"Eu sinto muito... Nao foi culpa sua. Ninguem poderia prever isso.\"");
+	Falas("Voce se abaixa para ficar na mesma altura dele.");
+	Falas("Aventureiro: \"Mas sabe o que me mantem em pe? A certeza de que eles nao gostariam que eu desistisse.\"");
+
+	Falas("Jovem: \"Voce acha... que eles me perdoariam?\"");
+
+	Falas("Aventureiro: \"Nao ha nada a perdoar. Voce fez o que podia. Agora, honre a memoria deles vivendo e seguindo em frente.\"");
+    Falas("Voce coloca uma mao firme em seu ombro.");
+	system("cls");
+
+	Falas("Jovem: \"Obrigado... Eu... eu tentarei ser mais forte.\"");
+	Falas("Jovem: \"Alias, o que voce esta fazendo aqui?\"");
+
+	Falas("Aventureiro: \"Um anao me disse sobre a lenda do Amuleto e disse que eu era predestinado.\"");
+
+	Falas("Jovem: \"Aquele filho da puta fala isso pra todo mundo, viemos aqui por causa dele, ele nao menciona o quao dificil e.\"");
+
+	Falas("Aventureiro: \"Entao todos sao predestinados..., Bom mesmo assim eu vou tentar salvar essa vila.\"");
+
+	Falas("Jovem: \"Ei, talvez possa ser muito cedo ainda mas eu poderia acompanhar voce?, eu preciso cumprir o que prometi aos meus amigos.\"");
+
+	Falas("Aventureiro: \"Claro sera um prazer ter voce ao meu lado!\"");
+	Falas("Aventureiro: \"Antes preciso saber.. Qual o seu nome?\"");
+
+	Falas("Thiago Nicola: \"Muito Prazer meu nome e Thiago Nicola, muito obrigado por ter me ajudado.\"");
+	Falas("Thiago Nicola: \"vou ficar responsavel por pegar os itens aos quais a gente pode vender ao sair daqui, eu acredito em voce...\"");
+	Falas("Thiago Nicola: \"Qual o seu nome mesmo...?\"");
+
+	Falas("Aventureiro: \"Meu nome e: nome do player , muito prazer vamos nessa\""); //NOME DO PLAYER
+	system("cls");
+
+	//ENTRADA DA DUNGEON
+	Falas("Voces descem as escadas escuras da Dungeon...");
+	Falas("Thiago Nicola: eu reconheco esse lugar e o Salao Negro.. foram aqui que cercaram meus amigos...");
+    Falas("O ar e pesado e o silencio e perturbador...");
+	Falas("Apos alguns passos...");
+
+	//GOBLIN	
+	Falas("Voces se deparam com um Goblin afiando sua adaga com uma pedra");
+	Falas("O Goblin sente seu cheiro!");
+	Falas("Goblin: \"UM" "A QUANTO TEMPO NAO VEJO ALGUEM DA SUA ESPECIE, O QUE FAZ AQUI? diz o Goblin\"");   // Adicionar a Raça do player
+	Falas("Eu reconheço esse menininho ai ao seu lado, ainda bem que voltou!!!!!");
+	Falas("O GLOBLIN ATACA VOCES");
+
 	Mob mob;
 	mob.vida = 5;
-	mob.forca = 100;
-	mob.nome = "Teste";
-	Luta(player, inventario, item, mob);
-
-	system ("cls");
+	mob.forca = 1;
+	mob.nome = "Goblin";
+	Luta(player, inventario, item,mob);
+	
 	cout << "Vida: " << player.vida << endl;
 	cout << "Forca: " << player.forca << endl;
 	cout << "Inteligencia: " << player.inteligencia << endl;
