@@ -237,6 +237,7 @@ int main() {
 	Inventario inventario;
 	player.qntI = 1; // Inicializa player.qntI
 	player.stamina = 1; // esse valor pode mudar!
+	string fala;
 
 	int classe, raca;
 	Item item[50];
@@ -348,7 +349,9 @@ int main() {
 	cout << "Inteligencia: " << player.inteligencia << endl;
 	cout << "Carisma: " << player.carisma << endl;
 	cout << "Destreza: " << player.destreza << endl;
-
+	system("pause");
+	system("cls");
+	
 	cout << "\n";
 
 	//INTRODUÇAO A HISTORIA
@@ -358,16 +361,25 @@ int main() {
     Falas("Doencas misteriosas assolam o lugar, e nem magos nem curandeiros conseguem ajuda-los.");
     Falas("Voce entra em uma taverna em busca de respostas...");
     Falas("Um anao de nome Leo se aproxima. Seus olhos brilham com esperanca.");
-    Falas("\"A muito tempo\", ele diz, \"um amuleto lendario foi perdido na Dungeon desta vila.\"");
-    Falas("\"Dizem que esse artefato pode curar qualquer enfermidade.\"");
-    Falas("\"Eu sinto algo especial em voce... algo que diz que e o heroi que esperavamos.\"");
+    falasPersonagem("\n\n\t\tHa muito tempo um amuleto lendario foi perdido na Dungeon desta vila.", "Leo");
+	system("cls");
+    falasPersonagem("\n\n\t\tDizem que esse artefato pode curar qualquer enfermidade.", "Leo");
+	system("cls");
+    falasPersonagem("\n\n\t\tEu sinto algo especial em voce... algo que diz que e o heroi que esperavamos.", "Leo");
+	system("cls");
     Falas("Ele lhe entrega um mapa da Dungeon e pede que encontre o amuleto.");
-    Falas("Cheio de esperancas"  " pega a sua espada vai avante a Dungeon salvar a vila"); // NOME PLAYER E ITEM NOS ESPAÇO
+    Falas("Cheio de esperancas" );
+	fala = player.nome;
+	Falas(fala);
+	Falas("pega a seu(a)");
+	fala = inventario.item[0].nome;
+	Falas(fala);
+	Falas("vai avante a Dungeon salvar a vila"); 
     system("cls");
 
 	//INDO PRA DUNGEON, E ENCONTRO COM O THIAGO (SALVE PROFESSOR)
 	Falas("Ao sair da taverna voce abre o mapa e percebe que a caminhada e longa");
-	Falas("sem perder muito tempo" "pega os suprimentos necessarios e parte a Dungeon"); //NOME DO PLAYER
+	Falas("sem perder muito tempo pega os suprimentos necessarios e parte a Dungeon"); 
 
 	Falas("Apos alguns minutos de caminhada voce chega ate o seu local de Destino.");
 	Falas("Uma floresta densa, mas ate entao nao ha nada do que temer alias tudo esta bem normal ate agora, voce diz em voz alta");
@@ -376,45 +388,61 @@ int main() {
 	Falas("Ele parece exausto, segurando firmemente um pedaço de pano rasgado.");
 	system("cls");
 
-	Falas("Aventureiro (voce): \"Ei... voce esta bem? O que aconteceu?\"");
+	falasPersonagem("\n\n\t\tEi... voce esta bem? O que aconteceu?",player.nome);
+	system("cls");
 
-	Falas("Jovem: \"E-eles... eles se foram... Todos eles!\"");
+	falasPersonagem("\n\n\t\tE-eles... eles se foram... Todos eles!", "Jovem");
 	Falas("Ele soluca enquanto aponta para o pano que segura. Parece ser parte do manto de alguem.");
+	system("cls");
 
-	Falas("Aventureiro: \"Calma... respire fundo. Me conte o que houve.\"");
+	falasPersonagem("\n\n\t\tCalma... respire fundo. Me conte o que houve.", player.nome);
+	system("cls");
 
-	Falas("Jovem: \"E-estavamos tentando encontrar o amuleto... Mas fomos atacados! Goblins... muitos deles!\"");
+	falasPersonagem("\n\n\t\tE-estavamos tentando encontrar o amuleto... Mas fomos atacados! Goblins... muitos deles!", "Jovem");
 	Falas("Ele se encolhe ao lembrar do ocorrido.");
+	system("cls");
 
-	Falas("Aventureiro: \"Eu sinto muito... Nao foi culpa sua. Ninguem poderia prever isso.\"");
+	falasPersonagem("\n\n\t\tEu sinto muito... Nao foi culpa sua. Ninguem poderia prever isso.",player.nome);
+	system("cls");
 	Falas("Voce se abaixa para ficar na mesma altura dele.");
-	Falas("Aventureiro: \"Mas sabe o que me mantem em pe? A certeza de que eles nao gostariam que eu desistisse.\"");
+	falasPersonagem("\n\n\t\tMas sabe o que me mantem em pe? A certeza de que eles nao gostariam que voce desistisse.", player.nome);
+	system("cls");
 
-	Falas("Jovem: \"Voce acha... que eles me perdoariam?\"");
+	falasPersonagem("\n\n\t\tVoce acha... que eles me perdoariam?", "Jovem");
+	system("cls");
 
-	Falas("Aventureiro: \"Nao ha nada a perdoar. Voce fez o que podia. Agora, honre a memoria deles vivendo e seguindo em frente.\"");
+	falasPersonagem("\n\n\t\tNao ha nada a perdoar. Voce fez o que podia. Agora, honre a memoria deles vivendo e seguindo em frente.", player.nome);
     Falas("Voce coloca uma mao firme em seu ombro.");
 	system("cls");
 
-	Falas("Jovem: \"Obrigado... Eu... eu tentarei ser mais forte.\"");
-	Falas("Jovem: \"Alias, o que voce esta fazendo aqui?\"");
+	falasPersonagem("\n\n\t\tObrigado... Eu... eu tentarei ser mais forte.", "Jovem");
+	system("cls");
+	falasPersonagem("\n\n\t\tAlias, o que voce esta fazendo aqui?", "Jovem");
+	system("cls");
 
-	Falas("Aventureiro: \"Um anao me disse sobre a lenda do Amuleto e disse que eu era predestinado.\"");
+	falasPersonagem("\n\n\t\tUm anao me disse sobre a lenda do Amuleto e disse que eu era predestinado.",player.nome);
+	system("cls");
 
-	Falas("Jovem: \"Aquele filho da puta fala isso pra todo mundo, viemos aqui por causa dele, ele nao menciona o quao dificil e.\"");
+	falasPersonagem("\n\n\t\tAquele filho da puta fala isso pra todo mundo, viemos aqui por causa dele, ele nao menciona o quao dificil e.", "Jovem");
+	system("cls");
 
-	Falas("Aventureiro: \"Entao todos sao predestinados..., Bom mesmo assim eu vou tentar salvar essa vila.\"");
+	falasPersonagem("\n\n\t\tEntao todos sao predestinados..., Bom mesmo assim eu vou tentar salvar essa vila.",player.nome);
+	system("cls");
 
-	Falas("Jovem: \"Ei, talvez possa ser muito cedo ainda mas eu poderia acompanhar voce?, eu preciso cumprir o que prometi aos meus amigos.\"");
+	falasPersonagem("\n\n\t\tEi, talvez possa ser muito cedo ainda mas eu poderia acompanhar voce?, eu preciso cumprir o que prometi aos meus amigos.", "Jovem");
+	system("cls");
 
-	Falas("Aventureiro: \"Claro sera um prazer ter voce ao meu lado!\"");
-	Falas("Aventureiro: \"Antes preciso saber.. Qual o seu nome?\"");
+	falasPersonagem("\n\n\t\tClaro sera um prazer ter voce ao meu lado!",player.nome);
+	system("cls");
+	falasPersonagem("\n\n\t\tAntes preciso saber.. Qual o seu nome?",player.nome);
+	system("cls");
 
-	Falas("Thiago Nicola: \"Muito Prazer meu nome e Thiago Nicola, muito obrigado por ter me ajudado.\"");
-	Falas("Thiago Nicola: \"vou ficar responsavel por pegar os itens aos quais a gente pode vender ao sair daqui, eu acredito em voce...\"");
-	Falas("Thiago Nicola: \"Qual o seu nome mesmo...?\"");
+	falasPersonagem("\n\n\t\tMuito Prazer meu nome e Thiago Nicola, muito obrigado por ter me ajudado.","Thiago Nicola");
+	system("cls");
+	falasPersonagem("\n\n\t\tVou ficar responsavel por pegar os itens aos quais a gente pode vender ao sair daqui, eu acredito em voce...","Thiago Nicola");
+	system("cls");
 
-	Falas("Aventureiro: \"Meu nome e: nome do player , muito prazer vamos nessa\""); //NOME DO PLAYER
+	falasPersonagem("\n\n\t\tTer voce comigo sera de grande ajuda!",player.nome);
 	system("cls");
 
 	//ENTRADA DA DUNGEON
@@ -426,7 +454,7 @@ int main() {
 	//GOBLIN	
 	Falas("Voces se deparam com um Goblin afiando sua adaga com uma pedra");
 	Falas("O Goblin sente seu cheiro!");
-	Falas("Goblin: \"UM" "A QUANTO TEMPO NAO VEJO ALGUEM DA SUA ESPECIE, O QUE FAZ AQUI? diz o Goblin\"");   // Adicionar a Raça do player
+	Falas("A QUANTO TEMPO NAO VEJO ALGUEM DA SUA ESPECIE, O QUE FAZ AQUI? diz o Goblin\""); 
 	Falas("Eu reconheço esse menininho ai ao seu lado, ainda bem que voltou!!!!!");
 	Falas("O GLOBLIN ATACA VOCES");
 
@@ -435,10 +463,114 @@ int main() {
 	mob.forca = 1;
 	mob.nome = "Goblin";
 	Luta(player, inventario, item,mob);
-	
+	getchar();
+	system("cls");
+
 	cout << "Vida: " << player.vida << endl;
 	cout << "Forca: " << player.forca << endl;
 	cout << "Inteligencia: " << player.inteligencia << endl;
 	cout << "Carisma: " << player.carisma << endl;
 	cout << "Destreza: " << player.destreza << endl;
+	getchar();
+	system("cls");
+
+	falasPersonagem("\n\n\t\tConsegui!, ele caiu... foi mais dificil do que eu imaginava, nao estava preparado.",player.nome);
+	falasPersonagem("\n\n\t\tIncrivel.. eu nunca teria conseguido sem voce...","Thiago Nicola");
+	falasPersonagem("\n\n\t\tBom agora que ja pegamos tudo o que precisamos vamo em frente.", player.nome);
+
+	//SLIME
+	Falas("Voces avistam um corredor escuro, apesar de estarem com medo e receosos os aventureiros encaram o medo.");
+	Falas("Apos andar por um tempo Thiago percebe que o chão e viscoso e escorregadio. Cada passo faz um som pegajoso, como se algo estivesse grudando em seus pes..");
+
+	Falas("Uma substancia estranha começa a se mover no chão...");
+	Falas("De repente, ela se levanta e ganha forma!");
+	Falas("Um Slime Pegajoso aparece e avança na direção de Thiago, tentando engoli-lo!");
+
+	Mob mob2;
+	mob.vida = 10;
+	mob.forca = 2;
+	mob.nome = "slime";
+	Luta(player, inventario, item,mob);
+	getchar();
+	system("cls");
+
+	cout << "Vida: " << player.vida << endl;
+	cout << "Forca: " << player.forca << endl;
+	cout << "Inteligencia: " << player.inteligencia << endl;
+	cout << "Carisma: " << player.carisma << endl;
+	cout << "Destreza: " << player.destreza << endl;
+	getchar();
+	system("cls");
+
+	falasPersonagem("\n\n\t\tVoce esta bem Thiago??? foi ferido?",player.nome);
+	system("cls");
+	falasPersonagem("\n\n\t\tHahahaha tava bem gelado mas esta tudo bem","Thiago Nicola");
+	system("cls");
+	falasPersonagem("\n\n\t\tBom, eu acho que devemos para por hoje.. Vamos procurar algum lugar para descansar e comer",player.nome);
+	system("cls");
+
+	//ZUMBI
+	Falas("Os aventureiros param para descansar e fazem uma fogueira com os suprimentos que possuiam");
+	Falas("durante um tempo os dois, conversam sobre suas vidas e o que irão fazer após a aventura...");
+	Falas("apos algum tempo de conversa os aventureiros caem no sono...");
+	Falas("Thiago acorda e fica imovel como se tivesse visto um monstro");
+	falasPersonagem("\n\n\t\tBom dia.. que cara e essa??",player.nome);
+	system("cls");
+	falasPersonagem("\n\n\t\tZzz-uuumm-biiiiiiii","Thiago Nicola");
+	system("cls");
+
+	Falas("O aventureiro estava agarrado a um Zumbi..");
+	Falas("A luta se inicia...");
+
+	Mob mob3;
+	mob.vida = 12;
+	mob.forca = 3;
+	mob.nome = "Zumbi";
+	Luta(player, inventario, item,mob);
+	getchar();
+	system("cls");
+
+	Falas("Apos o susto os aventureiros ");
+
+	cout << "Vida: " << player.vida << endl;
+	cout << "Forca: " << player.forca << endl;
+	cout << "Inteligencia: " << player.inteligencia << endl;
+	cout << "Carisma: " << player.carisma << endl;
+	cout << "Destreza: " << player.destreza << endl;
+	getchar();
+	system("cls");
+
+	//ESQUELETO ZUMBI
+	Mob mob4;
+	mob.vida = 12;
+	mob.forca = 3;
+	mob.nome = "Esqueleto zumbi";
+	Luta(player, inventario, item,mob);
+	getchar();
+	system("cls");
+
+	cout << "Vida: " << player.vida << endl;
+	cout << "Forca: " << player.forca << endl;
+	cout << "Inteligencia: " << player.inteligencia << endl;
+	cout << "Carisma: " << player.carisma << endl;
+	cout << "Destreza: " << player.destreza << endl;
+	getchar();
+	system("cls");
+
+	//CHEFE DOS GOBLINS 
+	Mob mob5;
+	mob.vida = 14;
+	mob.forca = 4;
+	mob.nome = "Chefe dos Goblins";
+	Luta(player, inventario, item,mob);
+	getchar();
+	system("cls");
+
+	cout << "Vida: " << player.vida << endl;
+	cout << "Forca: " << player.forca << endl;
+	cout << "Inteligencia: " << player.inteligencia << endl;
+	cout << "Carisma: " << player.carisma << endl;
+	cout << "Destreza: " << player.destreza << endl;
+	getchar();
+	system("cls");
 }
