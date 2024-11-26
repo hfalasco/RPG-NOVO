@@ -35,10 +35,65 @@ void separador(){
 	} 
 }
 
+void nomesCreditos(string fala){
+    for (char L : fala){ 
+        cout << L; 
+        Sleep(150); 
+       }
+	cout << "\n"; 
+}
+
+void creditos(){
+	nomesCreditos("\n\n\t\t\t\t\t\tHenrique Falasco");
+	nomesCreditos("\n\n\t\t\t\t\t\tJoao Betin");
+	nomesCreditos("\n\n\t\t\t\t\t\tMiguel Mendes");
+	nomesCreditos("\n\n\t\t\t\t\t\tRafael Guerino");
+	getchar();
+}
+
+void menu(Player &player){ // Tem player por referência pq vai mudar o valor de progresso quando escolher a opção "1. Novo jogo"
+	int escolha;
+	
+	while(escolha != 1 && escolha != 2){
+		cout << "\n\n\n\t\t";
+		separador();
+		cout << "\n\n\t\t\t\t\t\tELBAPH A JORNADA DO AMULETO PERDIDO\n\n\t\t";
+		separador();
+	
+		cout << "\n\n\t\t1. Novo jogo\n\n\t\t2. Carregar jogo\n\n\t\t3. Avisos\n\n\t\t4. Creditos\n";
+		cin >> escolha;
+		
+		switch(escolha){
+			case 1:
+				system("cls");
+				break;
+			case 2:
+				// Isso aqui vai ser com save
+				break;
+			case 3:
+				system("cls");
+				cout << "Hoje, dia final. Acabou-se...";
+				cin.ignore();
+				getchar();
+				system("cls");
+				break;
+			case 4:
+				system("cls");
+				creditos();
+				getchar();
+				system("cls");
+				break;
+			default:
+				cout << "\n\n Valor invalido. Digite novamente.";
+				break;				
+		}
+	}
+}
+
 void Falas(string fala){
        for (char L : fala){ // transformando string em char
            cout << L; // printando letra por letra
-           Sleep(1); // delay de 150 ms para cada letra (podendo alterar)
+           Sleep(25); // delay de 150 ms para cada letra (podendo alterar)
        }
 	   cout << "\n";
 	   getchar(); // pausa para o player clicar para aparecer outra fala (um pouco paia pq aparece "pressione qualuqer tecla para continuar"), passivel de retirada!
@@ -238,6 +293,8 @@ int main() {
 	player.qntI = 1; // Inicializa player.qntI
 	player.stamina = 1; // esse valor pode mudar!
 	string fala;
+	menu(player);
+	cin.ignore();
 
 	int classe, raca;
 	Item item[50];
@@ -530,8 +587,6 @@ int main() {
 	getchar();
 	system("cls");
 
-	Falas("Apos o susto os aventureiros ");
-
 	cout << "Vida: " << player.vida << endl;
 	cout << "Forca: " << player.forca << endl;
 	cout << "Inteligencia: " << player.inteligencia << endl;
@@ -539,6 +594,9 @@ int main() {
 	cout << "Destreza: " << player.destreza << endl;
 	getchar();
 	system("cls");
+
+	Falas("Apos o susto os aventureiros seguiram destruindo os monstros da masmorra 1 por um..");
+	Falas("Os aventureiros encontram um Esqueleto zumbi..");
 
 	//ESQUELETO ZUMBI
 	Mob mob4;
@@ -557,6 +615,12 @@ int main() {
 	getchar();
 	system("cls");
 
+	Falas("Apos derrotar o Esqueleto Zumbi, os aventureiros se deparam com uma porta.");
+	Falas("Porta essa que ali dentro esta um grande inimigo..");
+	falasPersonagem("Talvez estejamos pertos do nosso objetivo Thiago.. e Ele esta atras dessa porta..",player.nome);
+	falasPersonagem("Vamos juntos??","Thiago Nicola");
+	falasPersonagem("Bora!!",player.nome);
+
 	//CHEFE DOS GOBLINS 
 	Mob mob5;
 	mob.vida = 14;
@@ -573,4 +637,11 @@ int main() {
 	cout << "Destreza: " << player.destreza << endl;
 	getchar();
 	system("cls");
+
+	falasPersonagem("CONSEGUIMOS THIAGO!!",player.nome);
+	falasPersonagem("OBRIGADO...","Thiago Nicola");
+
+
+
+
 }
