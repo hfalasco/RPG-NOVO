@@ -57,7 +57,7 @@ void menu(Player &player){ // Tem player por referência pq vai mudar o valor de
 	while(escolha != 1 && escolha != 2){
 		cout << "\n\n\n\t\t";
 		separador();
-		cout << "\n\n\t\t\t\t\t\tELBAPH A JORNADA DO AMULETO PERDIDO\n\n\t\t";
+		cout << "\n\n\t\t\t\tELBAPH A JORNADA DO AMULETO PERDIDO\n\n\t\t";
 		separador();
 	
 		cout << "\n\n\t\t1. Novo jogo\n\n\t\t2. Carregar jogo\n\n\t\t3. Avisos\n\n\t\t4. Creditos\n";
@@ -68,11 +68,15 @@ void menu(Player &player){ // Tem player por referência pq vai mudar o valor de
 				system("cls");
 				break;
 			case 2:
+			system("cls");
 				// Isso aqui vai ser com save
 				break;
 			case 3:
 				system("cls");
-				cout << "Hoje, dia final. Acabou-se...";
+				cout << "Ola, aqui estao algumas coisas que gostariamos de atualizar no codigo..\n";
+				cout << "\n-	Adicionar mais monstros para a historia.";
+				cout << "\n-	Fazer a Adicao de mais personagens e uma historia para cada tipo de classe.";
+				cout << "\n-	Nao conseguimos implementar o sistema de salvamento. :( ";
 				cin.ignore();
 				getchar();
 				system("cls");
@@ -617,9 +621,12 @@ int main() {
 
 	Falas("Apos derrotar o Esqueleto Zumbi, os aventureiros se deparam com uma porta.");
 	Falas("Porta essa que ali dentro esta um grande inimigo..");
-	falasPersonagem("Talvez estejamos pertos do nosso objetivo Thiago.. e Ele esta atras dessa porta..",player.nome);
-	falasPersonagem("Vamos juntos??","Thiago Nicola");
-	falasPersonagem("Bora!!",player.nome);
+	falasPersonagem("\n\n\t\tTalvez estejamos pertos do nosso objetivo Thiago.. e Ele esta atras dessa porta..",player.nome);
+	system("cls");
+	falasPersonagem("\n\n\t\tVamos juntos??","Thiago Nicola");
+	system("cls");
+	falasPersonagem("\n\n\t\tBora!!",player.nome);
+	system("cls");
 
 	//CHEFE DOS GOBLINS 
 	Mob mob5;
@@ -638,10 +645,39 @@ int main() {
 	getchar();
 	system("cls");
 
-	falasPersonagem("CONSEGUIMOS THIAGO!!",player.nome);
-	falasPersonagem("OBRIGADO...","Thiago Nicola");
+	Falas("Após uma batalha feroz contra o Ciclope Gigante, a sala está em silêncio.");
+	Falas("O corpo colossal do inimigo cai ao chão com um estrondo ensurdecedor, fazendo a terra tremer.");
+	Falas("Você, exausto, segura sua espada, enquanto Thiago Nicola, seu leal companheiro, se apoia em seu escudo quebrado, mas com um sorriso satisfeito.");
+	system("cls");
+
+falasPersonagem("\n\n\t\tConseguimos, meu amigo! Esse Ciclope nao foi páreo para nós.",player.nome);
+system("cls");
+falasPersonagem("\n\n\t\tFoi por pouco... ele quase nos pegou naquele último golpe.","Thiago Nicola");
+system("cls");
+falasPersonagem("\n\n\t\tMas o que importa é que vencemos. Agora o amuleto é nosso.",player.nome);
+system("cls");
 
 
+Falas("Ambos olham para o pedestal brilhando no centro da sala.\n");
+Falas("\nVocê se aproxima, cada passo ecoando pela vasta câmara...\n");
+Falas("\nO amuleto reluz em um brilho dourado, emanando uma aura calorosa e reconfortante.");
 
+falasPersonagem("\n\n\t\tIncrível... Ele realmente existe. Agora podemos salvar a vila.","Thiago Nicola");
+system("cls");
+falasPersonagem("\n\n\t\tSim, Thiago. Essa jornada foi longa, mas valeu a pena.",player.nome);
+
+Falas("Você guarda o amuleto com cuidado e olha para Thiago.");
+Falas("Vamos voltar. A vila precisa de nós.");
+
+Falas("Thiago sorri e bate no ombro do aventureiro.\n");
+Falas("\nE depois disso, quem sabe, um pouco de descanso na taverna.");
+Falas("\nCom certeza. E a primeira rodada é por minha conta.");
+
+cout<< "	\n\n\t\t\t\t\t\tMUITO";
+cout<< "	\n\n\t\t\t\t\t\tOBRIGADO";
+cout<< "	\n\n\t\t\t\t\t\tPOR";
+cout<< "	\n\n\t\t\t\t\t\tJOGAR";
+getchar();
+return 0;
 
 }
